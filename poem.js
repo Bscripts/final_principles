@@ -1,20 +1,12 @@
-// function user_storage() {
-//     var x = document.getElementById("tword").innerHTML;}
-
-// document.getElementById("title").innerHTML = "" + x;
-
+//The pasting function is called by a button click on the html. A random
+//number generator assigns a random variable name to the boxes of user input on
+//the html website. I had to learn how randomization works in JavaScript to pull this off.
 
 function pasting() {
 
-    var line1 = Math.floor(Math.random() * 4);
-    var line2 = Math.floor(Math.random() * 4);
-    var line3 = Math.floor(Math.random() * 4);
-    var line4 = Math.floor(Math.random() * 4);
-    var line5 = Math.floor(Math.random() * 4);
-
-    var nouncalc = Math.floor(Math.random() * 5)
-    var verbcalc = Math.floor(Math.random() * 5)
-    var adjcalc = Math.floor(Math.random() * 5)
+    let nouncalc = Math.floor(Math.random() * 5);
+    let verbcalc = Math.floor(Math.random() * 5);
+    let adjcalc = Math.floor(Math.random() * 5);
 
     if (nouncalc === 0) {
      noun1 = tword1.value; 
@@ -124,113 +116,33 @@ function pasting() {
       adj4 = tword15.value;
     }
 
-    if (line1 === 0) {
-      line1 = "In the " + noun1 + " of the " + adj1 + " " + noun4 + " I " + verb1;
-    }
-    if (line1 === 1) {
-      line1 = "I " + verb1 + " my " + adj1 + " " + noun1;
-    }
-    if (line1 === 2) {
-      line1 = "To my " + adj1 + " " + noun1 + " I say " + verb1;
-    }
-    if (line1 === 3) {
-      line1 = "It is the nature of the " + adj1 + " " + noun1 + " to " + verb1;
-    }
+// The function below calls the randomized variables generated above and puts them 
+// into an array of strings. The function then chooses a random sentence from the array
+// and appends the sentence to a <p> in the html. I had to learn how arrays function in 
+// JavaScript to pull this off.
 
-    if (line2 === 0) {
-      line2 = "Take my " + noun2 + " so I may " + verb3;
-    }
-    if (line2 === 1) {
-      line2 = "If I shain't " + verb2 + ", my " + adj2 + " " + noun2 + " will " + verb4;
-    }
-    if (line2 === 2) {
-      line2 = "Every " + adj2 + " " + noun2 + " will learn to " + verb2;
-    }
-    if (line2 === 3) {
-      line2 = "The " + adj2 + " " + noun2 + " will never again " + verb2;
-    }
-
-    if (line3 === 0) {
-      line3 = "Every year the " + noun3 + " and the " + adj3 + " " + noun1 + " " + verb1;
-    }
-    if (line3 === 1) {
-      line3 = "An eternity of " + verb3 + "ing summons the " + adj3 + " " + noun3;
-    }
-    if (line3 === 2) {
-      line3 = "As my " + adj3 + " " + noun3 + " begins to " + verb3;
-    }
-    if (line3 === 3) {
-      line3 = "The " + adj3 + " " + noun3 + " only knows how to " + verb3;
-    }
-    if (line4 === 0) {
-      line4 = "Give me a " + noun4 + " so I may " + verb4;
-    }
-    if (line4 === 1) {
-      line4 = "Never again will I " + verb4 + " for the sake of the " + adj4 + " " + noun4;
-    }
-    if (line4 === 2) {
-      line4 = "My " + noun2 + "s are filled with " + adj4 + " " + noun4 + "s and all I can do is " + verb4;
-    }
-    if (line4 === 3) {
-      line4 = "Memories of " + adj4 + " " + noun4 + "s " + verb4;
-    }
-
-    if (line5 === 0) {
-      line5 = "I " + verb5 + " for every " + noun5;
-    }
-    if (line5 === 1) {
-      line5 = "So long as " + noun5 + " " + verb5 + "s, the " + noun3 + " will " + verb2;
-    }
-    if (line5 === 2) {
-      line5 = "It's because of the " + adj5 + " " + noun5 + "s I " + verb5;
-    }
-    if (line5 === 3) {
-      line5 = "Let the " + adj5 + " " + noun5 + "s " + verb5;
-    }
-
-    var linecalc = Math.floor(Math.random() * 6)
-
-    if (linecalc === 0) {
-      lin1 = line1; 
-      lin2 = line2;
-      lin3 = line3;
-      lin4 = line4;
-     }
-     if (linecalc === 1) {
-      lin3 = line1; 
-      lin2 = line2;
-      lin4 = line3;
-      lin1 = line4;
-     }
-     if (linecalc === 2) {
-      lin2 = line1; 
-      lin3 = line2;
-      lin4 = line3;
-      lin1 = line4;
-     }
-     if (linecalc === 3) {
-      lin3 = line1; 
-      lin4 = line2;
-      lin1 = line3;
-      lin2 = line4;
-     }
-     if (linecalc === 4) {
-      lin4 = line1; 
-      lin2 = line2;
-      lin3 = line3;
-      lin1 = line4;
-     }
-     if (linecalc === 5) {
-      lin4 = line1; 
-      lin3 = line2;
-      lin2 = line3;
-      lin1 = line4;
-     }
+    function writeALine(unoun, unoun2, uverb, uverb2, uadj, x, pasteat) {
     
+      let test = ["In the " + unoun + " of the " + uadj + " " + unoun2 + " I " + uverb, "I " + uverb + " my " + uadj + " " + unoun, 
+      "To my " + uadj + " " + unoun + " I say " + uverb, "It is the nature of the " + uadj + " " + unoun + " to " + uverb,
+      "Take my " + unoun + " so I may " + uverb, "If I shain't " + uverb + ", my " + uadj + " " + unoun + " will " + uverb2, 
+      "Every " + uadj + " " + unoun + " will learn to " + uverb, "The " + uadj + " " + unoun + " will never again " + uverb,
+      "Every year the " + unoun + " and the " + uadj + " " + unoun2 + " " + uverb, 
+      "An eternity of " + uverb + "ing summons the " + uadj + " " + unoun, "As my " + uadj + " " + unoun + " begins to " + uverb,
+      "The " + uadj + " " + unoun + " only knows how to " + uverb, "Give me a " + unoun + " so I may " + uverb,
+      "Never again will I " + uverb + " for the sake of the " + uadj + " " + unoun, "My " + unoun2 + "s are filled with " + uadj + " " + unoun + "s and all I can do is " + uverb,
+      "Memories of " + uadj + " " + unoun + "s " + uverb, "I " + uverb + " for every " + unoun,
+      "So long as " + unoun + " " + uverb + "s, the " + unoun2 + " will " + uverb2, "It's because of the " + uadj + " " + unoun + "s I " + uverb,
+      "Let the " + uadj + " " + unoun + "s " + uverb];
 
-    document.getElementById("paste1").innerHTML = lin1;
-    document.getElementById("paste2").innerHTML = lin2;
-    document.getElementById("paste3").innerHTML = lin3;
-    document.getElementById("paste4").innerHTML = lin4;
-    document.getElementById("paste5").innerHTML = line5;
+      test.sort(function(a, b){return 0.5 - Math.random()});
+
+      document.getElementById(pasteat).innerHTML = test[x];
+    }
+
+    writeALine(noun1, noun3, verb1, verb4, adj1, 0, "paste1")
+    writeALine(noun2, noun4, verb2, verb5, adj2, 0, "paste2")
+    writeALine(noun3, noun5, verb3, verb1, adj3, 0, "paste3")
+    writeALine(noun4, noun1, verb4, verb2, adj4, 0, "paste4")
+    writeALine(noun5, noun2, verb5, verb3, adj5, 0, "paste5")
   }
